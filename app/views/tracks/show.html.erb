@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @track.name %>
+</p>
+
+<p>
+  <b>Count:</b>
+  <%= @track.count %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @track.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_track_path(@track) %> |
+<%= link_to 'Back', tracks_path %>
