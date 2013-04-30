@@ -10,10 +10,11 @@ group :production, :staging do
 end
 
 group :development, :test do
-  gem "sqlite3", :require => "sqlite3"
+  gem "sqlite3"
+  gem 'rspec-rails'
 end
 
-gem 'devise' , '2.0.0'
+gem 'devise'
 
 gem 'thin'
 
