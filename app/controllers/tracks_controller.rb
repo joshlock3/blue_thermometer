@@ -42,6 +42,8 @@ class TracksController < ApplicationController
   def create
     @track = Track.new(params[:track])
 
+    @track.user = current_user
+
     respond_to do |format|
       if @track.save
         format.html { redirect_to @track, notice: 'Track was successfully created.' }

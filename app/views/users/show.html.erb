@@ -1,2 +1,18 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<table class="profile" summary ="Profile Information">
+    <tr>
+        <td class = "main">
+            <h1>
+                Information Here
+            </h1>
+        </td>
+
+        <td class="sidebar round">
+            <strong>Name:</strong> <%= @user.username %> <br />
+            <strong>Name:</strong> <%= @user.email %> <br />
+            <strong>URL:</strong> <%= link_to user_path(@user), @user %>
+
+        </td>
+
+    </tr>
+
+</table>
