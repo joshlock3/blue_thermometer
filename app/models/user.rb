@@ -10,8 +10,27 @@ class User < ActiveRecord::Base
   attr_accessible :email, :username, :password, :password_confirmation, :remember_me
 
 
+   validates :email,
+                :presence => true,
+                :uniqueness => {:case_sensitive => false }
+
+
+  validates :password,
+            :presence => true,
+            :confirmation => true,
+            :length => {:within => 6..40}
+
+  validates :username,
+            :presence => true,
+            :uniqueness => {:case_sensitive => false},
+            :length => {:within => 3..40}
+
+
+
   def to_param
     username
   end
+
+
 
 end
