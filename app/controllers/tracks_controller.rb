@@ -4,7 +4,6 @@ class TracksController < ApplicationController
   def index
     @tracks = Track.all
     @user_tracks = @tracks.group_by{|track| track.user.username}
-    @t = @tracks.group_by{|track| track.name}
   end
     respond_to do |format|
       format.html # index.html.erb
