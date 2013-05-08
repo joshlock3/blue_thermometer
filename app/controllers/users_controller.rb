@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
+    @user = User.new(:user_id => current_user.id)
 
     respond_to do |format|
       format.html # new.html.erb

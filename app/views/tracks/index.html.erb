@@ -5,6 +5,7 @@
   <tr>
     <th>Name</th>
     <th>Count</th>
+    <th>Date</th>
     <th>User</th>
     <th></th>
     <th></th>
@@ -15,7 +16,8 @@
   <tr>
     <td><%= track.name %></td>
     <td><%= track.count %></td>
-    <td><%= track.user %></td>
+    <td><%= track.created_at.to_date %></td>
+    <td><%= track.user.username %></td>
     <td><%= link_to 'Show', track %></td>
     <td><%= link_to 'Edit', edit_track_path(track) %></td>
     <td><%= link_to 'Destroy', track, confirm: 'Are you sure?', method: :delete %></td>
@@ -24,6 +26,29 @@
 
 
 </table>
+
+    <%=	@user_tracks.keys.sort.each do |tracks| %>
+        <div class="tracks">
+            <h2>Trackings: <%= tracks %> </h2>
+            Total count: <%= @user_tracks[tracks].collect(&:count).sum %>
+        </div>
+     <%	end  %>
+
+<% @user_tracks.sort.each do |username, tracks| %>
+    <h2><%= username %></h2>
+
+    <%= tracks.collect(&:count).sum %>
+
+
+
+
+    <% for track in tracks %>
+        <div class="tracking">
+            <strong><%= track.name %></strong>
+            Tracking: <%= track.count %>
+        </div>
+    <% end %>
+<% end %>
 
 <br />
 
