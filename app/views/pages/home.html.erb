@@ -1,4 +1,36 @@
-<h1>Pages#home</h1>
-<p><p>
+<h1>Home</h1>
+
+<style type="text/css">
+    table {margin: 10px 0}
+    th {border: 1px solid #000; vertical-align: middle; padding: 5px}
+    th {font: BOLD 12px Arial, Helvetica, sans-serif; color: #ffffff; background: dodgerblue;}
+    td {background:#fff; vertical-align: middle; padding: 5px; border: 1px solid #000;}
+</style>
+
+<table>
+    <tr>
+        <th>User</th>
+        <th>Track</th>
+        <th>Reps</th>
+        <th>Date</th>
+
+    </tr>
+
+    <% @tracks.sort.each do |track| %>
+        <tr>
+            <td><%= track.user.username %></td>
+            <td><%= track.name %></td>
+            <td><%= track.count %></td>
+            <td><%= track.created_at.to_date %></td>
+
+        </tr>
+    <% end %>
+
+
+</table>
+<button type="button">
 <%= link_to "View all Trackings", track_path %>
+</button>
+<button type="button">
 <%= link_to "Add New Tracking", new_track_path %>
+</button>
