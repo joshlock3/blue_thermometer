@@ -20,6 +20,11 @@ BlueThermometer::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # Log error messages when you accidentally call methods on nil.
+  config.whiny_nils = true
+
+  config.eager_load = true
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 

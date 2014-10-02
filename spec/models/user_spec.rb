@@ -19,12 +19,12 @@ describe User do
 
     it "should require a username" do
       no_username_user = User.new(@attributes.merge(:username => ""))
-      no_username_user.should_not be_valid
+      expect(no_username_user).not_to be_valid
     end
 
     it "should require an email" do
       no_email_user = User.new(@attributes.merge(:email => ""))
-      no_email_user.should_not be_valid
+      expect(no_email_user).not_to be_valid
     end
   end
 end
